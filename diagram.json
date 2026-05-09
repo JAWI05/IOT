@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "author": "Julia Iwazanawa",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -3, "left": -45.2, "attrs": {} },
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 104.46,
+      "left": 54.5,
+      "rotate": 270,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -53.65,
+      "left": -76.8,
+      "attrs": { "value": "1000" }
+    },
+    { "type": "wokwi-rgb-led", "id": "rgb1", "top": 4, "left": 87.5, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.3", "bb1:14t.c", "black", [ "v0" ] ],
+    [ "esp:D0", "bb1:13t.b", "red", [ "v0" ] ],
+    [ "esp:D1", "bb1:15t.b", "green", [ "v0" ] ],
+    [ "rgb1:R", "bb1:13t.a", "", [ "$bb" ] ],
+    [ "rgb1:COM", "bb1:14t.b", "", [ "$bb" ] ],
+    [ "rgb1:G", "bb1:15t.a", "", [ "$bb" ] ],
+    [ "rgb1:B", "bb1:16t.a", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
