@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "author": "Julia Iwazanawa",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -3, "left": -54.8, "attrs": {} },
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 164.1,
+      "left": -144.25,
+      "rotate": 270,
+      "attrs": { "env": "micropython-20231227-v1.22.0" }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -87.7, "left": 9.4, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 82.8, "left": -25, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 158.4,
+      "left": -38.95,
+      "rotate": 90,
+      "attrs": { "value": "330" }
+    }
+  ],
+  "connections": [
+    [ "pico:GND.8", "bb1:tn.1", "black", [ "v0" ] ],
+    [ "pico:3V3", "bb1:tp.1", "red", [ "v0" ] ],
+    [ "pot1:GND", "bb1:tn.6", "black", [ "v0" ] ],
+    [ "pot1:VCC", "bb1:tp.8", "red", [ "v0" ] ],
+    [ "pico:GP26", "pot1:SIG", "green", [ "v0" ] ],
+    [ "r1:1", "bb1:3b.h", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:bn.2", "", [ "$bb" ] ],
+    [ "bb1:4b.h", "pico:GP15", "green", [ "v182.4", "h-9.6" ] ],
+    [ "bb1:tn.25", "bb1:bn.25", "green", [ "v-0.1", "h40", "v172.8" ] ],
+    [ "led1:A", "bb1:4b.g", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:3b.g", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
